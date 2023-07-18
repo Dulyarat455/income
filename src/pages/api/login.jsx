@@ -54,7 +54,7 @@ export default  async  function Login (req,res)  {
 
     if(isMatch){
         // 1 h age of account
-      const token = jwt.sign({ account_id, email }, process.env.JWT_KEY, { expiresIn: '1h' });
+      const token = jwt.sign({ account_id, email },'eiei', { expiresIn: '1h' });
       console.log(token)
       return res.status(200).json({ message: 'Login success', success: true, token: token });
     } else {
